@@ -1,32 +1,8 @@
 @import "normalize";
-
-html, body {
-  font-size: 16px;
-}
-
-.slider{
-  &__box{}
-  &__slide{
-    background: aqua;
-    width: 100%;
-    height: 25rem;
-    &:nth-child(2){
-      background: red;
-    }
-    &:last-child{
-      background: green;
-    }
-  }
-  &__hdl{}
-  &__lead{}
-  &__link{}
-  &__nav{}
-}
-
-.nav{
-  &__btn{}
-  &__btn--prev{}
-}
+@import "variables";
+@import "common";
+@import "./components/slider";
+@import "./components/slidernav";
 
 
 
