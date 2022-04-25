@@ -1,3 +1,16 @@
-body {
-  background: lightcoral;
+.slider{
+  .&__box{}
+  .&__slide{}
+  .&__hdl{}
+  .&__lead{}
+  .&__link{}
+  .&__nav{}
 }
+
+.nav{
+  .&__btn{}
+  .&__btn--prev{}
+}
+
+
+
