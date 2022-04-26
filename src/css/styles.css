@@ -341,12 +341,24 @@ html, body {
   font-size: 16px;
 }
 
-@keyframes slid-1-animation {
+@font-face {
+  font-family: "Roboto Bold";
+  src: url("../fonts/roboto-bold1-webfont.woff2") format("woff2"), url("../fonts/roboto-bold1-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Roboto Light";
+  src: url("../fonts/roboto-light1-webfont.woff2") format("woff2"), url("../fonts/roboto-light1-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@keyframes slide-1-animation {
   0% {
-    left: 0;
+    left: 0%;
   }
   20% {
-    left: 0;
+    left: 0%;
   }
   40% {
     left: -100%;
@@ -361,7 +373,7 @@ html, body {
     left: -200%;
   }
 }
-@keyframes slid-2-animation {
+@keyframes slide-2-animation {
   0% {
     left: 100%;
   }
@@ -369,10 +381,10 @@ html, body {
     left: 100%;
   }
   40% {
-    left: 0;
+    left: 0%;
   }
   60% {
-    left: 0;
+    left: 0%;
   }
   80% {
     left: -100%;
@@ -381,7 +393,7 @@ html, body {
     left: -100%;
   }
 }
-@keyframes slid-3-animation {
+@keyframes slide-3-animation {
   0% {
     left: 200%;
   }
@@ -395,38 +407,68 @@ html, body {
     left: 100%;
   }
   80% {
-    left: 0;
+    left: 0%;
   }
   100% {
-    left: 0;
+    left: 0%;
   }
 }
 .slider__box {
-  position: relative;
   overflow: hidden;
   min-height: 25rem;
 }
 .slider__slide {
-  background: aqua;
   width: 100%;
   height: 25rem;
   position: absolute;
   animation-duration: 10s;
   animation-iteration-count: infinite;
   animation-direction: alternate;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
-.slider__slide:first-child {
-  animation-name: slid-1-animation;
+.slider__slide:nth-child(1) {
+  animation-name: slide-1-animation;
+  background-image: url("../images/dog1.jpg");
+  left: 0%;
 }
 .slider__slide:nth-child(2) {
-  animation-name: slid-2-animation;
-  background: red;
+  animation-name: slide-2-animation;
+  background-image: url("../images/dog2.jpg");
   left: 100%;
 }
-.slider__slide:last-child {
-  animation-name: slid-3-animation;
-  background: green;
+.slider__slide:nth-child(3) {
+  animation-name: slide-3-animation;
+  background-image: url("../images/dog3.jpg");
   left: 200%;
+}
+.slider__content {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 0.9375rem 6.25rem 0.9375rem 0.9375rem;
+  position: absolute;
+  bottom: 0;
+  box-sizing: border-box;
+}
+.slider__hdl {
+  font-family: "Roboto Bold", sans-serif;
+}
+.slider__lead {
+  font-family: "Roboto Light", sans-serif;
+}
+.slider__link {
+  position: absolute;
+  right: 0.9375rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background-image: url("../images/read-more-icon.svg");
+  display: block;
+  width: 2.875rem;
+  height: 2.875rem;
+  overflow: hidden;
+  text-indent: -999px;
 }
 
 /*# sourceMappingURL=styles.css.map */

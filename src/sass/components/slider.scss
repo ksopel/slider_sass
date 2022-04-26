@@ -1,54 +1,83 @@
+@import "../variables";
 @import "../utils/functions";
 
-$slides-map: (1: peru, 2: red, 3: green);
-@for $index from 1 through 3 {
+
+@for $index from 1 through length($slides-map) {
   $start: ($index - 1) * 100;
 
   @keyframes slide-#{$index}-animation {
-    @for $index from 0 through 5 {
+    @for $i from 0 through 5 {
       $step: 0;
 
-      @if $index == 2 or $index == 3 {
+      @if $i == 2 or $i == 3 {
         $step: 100;
-      } @else if $index == 4 or $index == 5 {
+      } @else if $i == 4 or $i == 5 {
         $step: 200;
       }
 
-      #{$index * 20}% {left: $start -$step *1%;}
-
+      #{$i * 20%} {left: $start - $step * 1%;}
     }
 
   }
 }
 
-.slider {
-  &__box {
-    position: relative;
+.slider{
+  &__box{
     overflow: hidden;
     min-height: toRem(400px);
   }
-
-  &__slide {
+  &__slide{
     width: 100%;
     height: toRem(400px);
     position: absolute;
     animation-duration: 10s;
     animation-iteration-count: infinite;
     animation-direction: alternate;
-    @each $index, $color in $slides-map {
-      &:nth-child(#{$index}) {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    //display: flex;
+    //justify-content: flex-end;
+    //flex-direction: column;
+    @each $index, $img in $slides-map {
+      &:nth-child(#{$index}){
         animation-name: slide-#{$index}-animation;
-        background: $color;
+        background-image: url("#{$imgs-path}#{$img}.jpg");
         left: ($index - 1) * 100%;
       }
     }
   }
 
-  &__hdl {}
+  &__content {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: toRem(15px) toRem(100px) toRem(15px) toRem(15px);
+    position: absolute;
+    bottom: 0;
+    box-sizing: border-box;
+  }
 
-  &__lead {}
+  &__hdl {
+    font-family: "Roboto Bold", sans-serif;
+  }
 
-  &__link {}
+  &__lead {
+    font-family: "Roboto Light", sans-serif;
+  }
+
+  &__link {
+    position: absolute;
+    right: toRem(15px);
+    top: 50%;
+    transform: translateY(-50%);
+    background-image: url('#{$imgs-path}read-more-icon.svg');
+    display: block;
+    width: toRem(46px);
+    height: toRem(46px);
+    overflow: hidden;
+    text-indent: -999px;
+  }
 
   &__nav {}
 }
