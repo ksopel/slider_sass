@@ -1,3 +1,5 @@
+@import "../utils/functions";
+
 @keyframes slid-1-animation {
   0% {left: 0;}
   20% {left: 0;}
@@ -29,7 +31,7 @@
   &__box{
     position: relative;
     overflow: hidden;
-    min-height: 25rem;
+    min-height: toRem(400px);
   }
   &__slide{
     background: aqua;
