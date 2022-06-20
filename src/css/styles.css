@@ -470,5 +470,33 @@ html, body {
   overflow: hidden;
   text-indent: -999px;
 }
+.magic {
+  width: 100px;
+  height: 100px;
+  background-color: lightcoral;
+  border: 1px solid darkred;
+  transition: all 400ms;
+  margin: 100px;
+}
+@media (min-width: 576px) {
+  .magic {
+    transform: rotate(45deg);
+  }
+}
+@media (orientation: landscape) {
+  .magic {
+    background: lightgreen;
+  }
+}
+@media (aspect-ratio: 16/9) {
+  .magic {
+    background: black;
+  }
+}
+@media (min-width: 700px) {
+  .magic {
+    border-radius: 50%;
+  }
+}
 
 /*# sourceMappingURL=styles.css.map */

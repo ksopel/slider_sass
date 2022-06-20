@@ -1,0 +1,56 @@
+@use "sass:map";
+
+$grid-breakpoints: (
+        xs: 0,
+        sm: 576px,
+        md: 768px,
+        lg: 992px,
+        xl: 1200px,
+        xxl: 1400px
+);
+
+@mixin mq($breakpoint){
+  @if not map.has-key($grid-breakpoints, $breakpoint){
+    @error "Ziomuś, nie ma takiego breakpointa: #{$breakpoint}"
+  }
+  $breakpoint-value: map.get($grid-breakpoints, $breakpoint);
+
+  @media (min-width:$breakpoint-value ){
+    @content;
+  }
+}
+
+.magic {
+  width: 100px;
+  height: 100px;
+  background-color: lightcoral;
+  border: 1px solid darkred;
+  transition: all 400ms;
+  margin: 100px;
+
+
+  @include mq(sm){
+    transform: rotate(45deg);
+  }
+
+  @media (orientation: landscape){
+    background: lightgreen;
+  }
+  @media (aspect-ratio: 16/9){
+    background: black;
+  }
+  @media (min-width: 700px){
+    border-radius: 50%;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
